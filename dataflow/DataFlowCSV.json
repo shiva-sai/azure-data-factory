@@ -31,10 +31,6 @@
 				}
 			],
 			"scriptLines": [
-				"parameters{",
-				"     source as string,",
-				"     target as string",
-				"}",
 				"source(output(",
 				"          Customer_ID as string,",
 				"          Age as string,",
