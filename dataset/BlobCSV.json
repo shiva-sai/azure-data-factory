@@ -1,0 +1,136 @@
+{
+	"name": "BlobCSV",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "BlobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "Ecommerce_Consumer_Behavior_Analysis_Data.csv",
+				"fileSystem": "input"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Customer_ID",
+				"type": "String"
+			},
+			{
+				"name": "Age",
+				"type": "String"
+			},
+			{
+				"name": "Gender",
+				"type": "String"
+			},
+			{
+				"name": "Income_Level",
+				"type": "String"
+			},
+			{
+				"name": "Marital_Status",
+				"type": "String"
+			},
+			{
+				"name": "Education_Level",
+				"type": "String"
+			},
+			{
+				"name": "Occupation",
+				"type": "String"
+			},
+			{
+				"name": "Location",
+				"type": "String"
+			},
+			{
+				"name": "Purchase_Category",
+				"type": "String"
+			},
+			{
+				"name": "Purchase_Amount",
+				"type": "String"
+			},
+			{
+				"name": "Frequency_of_Purchase",
+				"type": "String"
+			},
+			{
+				"name": "Purchase_Channel",
+				"type": "String"
+			},
+			{
+				"name": "Brand_Loyalty",
+				"type": "String"
+			},
+			{
+				"name": "Product_Rating",
+				"type": "String"
+			},
+			{
+				"name": "Time_Spent_on_Product_Research(hours)",
+				"type": "String"
+			},
+			{
+				"name": "Social_Media_Influence",
+				"type": "String"
+			},
+			{
+				"name": "Discount_Sensitivity",
+				"type": "String"
+			},
+			{
+				"name": "Return_Rate",
+				"type": "String"
+			},
+			{
+				"name": "Customer_Satisfaction",
+				"type": "String"
+			},
+			{
+				"name": "Engagement_with_Ads",
+				"type": "String"
+			},
+			{
+				"name": "Device_Used_for_Shopping",
+				"type": "String"
+			},
+			{
+				"name": "Payment_Method",
+				"type": "String"
+			},
+			{
+				"name": "Time_of_Purchase",
+				"type": "String"
+			},
+			{
+				"name": "Discount_Used",
+				"type": "String"
+			},
+			{
+				"name": "Customer_Loyalty_Program_Member",
+				"type": "String"
+			},
+			{
+				"name": "Purchase_Intent",
+				"type": "String"
+			},
+			{
+				"name": "Shipping_Preference",
+				"type": "String"
+			},
+			{
+				"name": "Time_to_Decision",
+				"type": "String"
+			}
+		]
+	}
+}
