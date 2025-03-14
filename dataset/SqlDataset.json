@@ -1,0 +1,38 @@
+{
+	"name": "SqlDataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlDB",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Customer_ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Age",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Gender",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Income_Level",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Marital_Status",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Ecom"
+		}
+	}
+}
