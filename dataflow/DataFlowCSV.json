@@ -31,6 +31,9 @@
 				}
 			],
 			"scriptLines": [
+				"parameters{",
+				"     OutputFileName as string",
+				"}",
 				"source(output(",
 				"          Customer_ID as string,",
 				"          Age as string,",
@@ -107,6 +110,7 @@
 				"          Shipping_Preference as string,",
 				"          Time_to_Decision as string",
 				"     ),",
+				"     partitionFileNames:[($OutputFileName)],",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",
