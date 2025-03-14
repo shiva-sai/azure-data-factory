@@ -1,0 +1,123 @@
+{
+	"name": "DataFlowCSV",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "BlobCSV",
+						"type": "DatasetReference"
+					},
+					"name": "Source"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "BlobCSV",
+						"type": "DatasetReference"
+					},
+					"name": "Sink",
+					"rejectedDataLinkedService": {
+						"referenceName": "BlobStorage",
+						"type": "LinkedServiceReference"
+					}
+				}
+			],
+			"transformations": [
+				{
+					"name": "selectColumns"
+				}
+			],
+			"scriptLines": [
+				"parameters{",
+				"     source as string,",
+				"     target as string",
+				"}",
+				"source(output(",
+				"          Customer_ID as string,",
+				"          Age as string,",
+				"          Gender as string,",
+				"          Income_Level as string,",
+				"          Marital_Status as string,",
+				"          Education_Level as string,",
+				"          Occupation as string,",
+				"          Location as string,",
+				"          Purchase_Category as string,",
+				"          Purchase_Amount as string,",
+				"          Frequency_of_Purchase as string,",
+				"          Purchase_Channel as string,",
+				"          Brand_Loyalty as string,",
+				"          Product_Rating as string,",
+				"          {Time_Spent_on_Product_Research(hours)} as string,",
+				"          Social_Media_Influence as string,",
+				"          Discount_Sensitivity as string,",
+				"          Return_Rate as string,",
+				"          Customer_Satisfaction as string,",
+				"          Engagement_with_Ads as string,",
+				"          Device_Used_for_Shopping as string,",
+				"          Payment_Method as string,",
+				"          Time_of_Purchase as string,",
+				"          Discount_Used as string,",
+				"          Customer_Loyalty_Program_Member as string,",
+				"          Purchase_Intent as string,",
+				"          Shipping_Preference as string,",
+				"          Time_to_Decision as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     partitionBy('hash', 1)) ~> Source",
+				"Source select(mapColumn(",
+				"          Customer_ID,",
+				"          Age,",
+				"          Gender,",
+				"          Income_Level,",
+				"          Marital_Status",
+				"     ),",
+				"     partitionBy('hash', 1),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> selectColumns",
+				"selectColumns sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          Customer_ID as string,",
+				"          Age as string,",
+				"          Gender as string,",
+				"          Income_Level as string,",
+				"          Marital_Status as string,",
+				"          Education_Level as string,",
+				"          Occupation as string,",
+				"          Location as string,",
+				"          Purchase_Category as string,",
+				"          Purchase_Amount as string,",
+				"          Frequency_of_Purchase as string,",
+				"          Purchase_Channel as string,",
+				"          Brand_Loyalty as string,",
+				"          Product_Rating as string,",
+				"          {Time_Spent_on_Product_Research(hours)} as string,",
+				"          Social_Media_Influence as string,",
+				"          Discount_Sensitivity as string,",
+				"          Return_Rate as string,",
+				"          Customer_Satisfaction as string,",
+				"          Engagement_with_Ads as string,",
+				"          Device_Used_for_Shopping as string,",
+				"          Payment_Method as string,",
+				"          Time_of_Purchase as string,",
+				"          Discount_Used as string,",
+				"          Customer_Loyalty_Program_Member as string,",
+				"          Purchase_Intent as string,",
+				"          Shipping_Preference as string,",
+				"          Time_to_Decision as string",
+				"     ),",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     partitionBy('hash', 1)) ~> Sink"
+			]
+		}
+	}
+}
