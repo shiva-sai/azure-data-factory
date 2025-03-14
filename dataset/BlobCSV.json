@@ -5,12 +5,20 @@
 			"referenceName": "BlobStorage",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"fileName": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "Ecommerce_Consumer_Behavior_Analysis_Data.csv",
+				"fileName": {
+					"value": "@dataset().fileName",
+					"type": "Expression"
+				},
 				"fileSystem": "input"
 			},
 			"columnDelimiter": ",",
